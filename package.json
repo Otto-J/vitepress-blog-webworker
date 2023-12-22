@@ -1,0 +1,19 @@
+{
+  "name": "vitepress-blog-webworker",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest",
+    "prettier": "^3.1.1",
+    "vitepress": "^1.0.0-rc.32"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview",
+    "format": "prettier -w  ."
+  }
+}
