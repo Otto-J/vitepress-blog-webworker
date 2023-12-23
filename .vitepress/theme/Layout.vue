@@ -1,49 +1,28 @@
 <template>
-  <header class="bg-blue-300 p-4">
-    {{ site.title }} - {{ site.description }}
-  </header>
-  <div v-if="false" class="hero min-h-screen" style="">
-    <div class="hero-overlay bg-opacity-60"></div>
-    <div class="hero-content text-center text-neutral-content">
-      <div class="max-w-md">
-        <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-        <p class="mb-5">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-          excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-          id nisi.
-        </p>
-        <button class="btn btn-primary">Get Started</button>
-      </div>
+  <div>
+    <div>列表页面内容：</div>
+    <div v-for="item of data.slice(0, 2)" :key="item._id">
+      <!-- <route></route> -->
+
+      <span>{{ item.title }}</span>
+      <!-- </p> -->
     </div>
+
+    <hr />
+    <!-- <Content /> -->
+    <div>{{ page.params.content }}</div>
   </div>
-  <div v-if="page.isNotFound">Custom 404 page!</div>
-  <div v-else-if="frontmatter.home">
-    <ul>
-      <li><a href="/markdown-examples.html">Markdown Examples</a></li>
-      <li><a href="/api-examples.html">API Examples</a></li>
-    </ul>
-  </div>
-  <div v-if="page.filePath.startsWith('posts/')">
-    <Posts>
-      <article class="markdown-body p-4">
-        <Content />
-      </article>
-    </Posts>
-  </div>
-  <div v-else>
-    <a href="/">Home</a>
-    <Content />
-  </div>
-  <Footer />
 </template>
-
-<script setup lang="ts">
+<script setup>
+// import info from "./posts.data.js"
 import { useData } from "vitepress"
-import Footer from "./components/footer.vue"
-import Posts from "./Posts.vue"
+import { data } from "../../data/posts.data"
 
-// https://vitepress.dev/reference/runtime-api#usedata
-const { site, frontmatter, page } = useData()
-// console.log(33, site.value, frontmatter.value)
-console.log(44, page.value)
+const { page } = useData()
+console.log(page)
+
+// console.log("--", info)
+// console.log(data)
 </script>
+
+<style></style>
